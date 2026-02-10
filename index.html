@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PC Yhteensopivuustarkistin - Gigantti</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="header-info">
+                <div class="author-info">
+                    <span class="disclaimer">Käyttö omalla vastuulla</span>
+                </div>
+                <p class="subtitle">Kehitysversio. Jos löydät ongelmia, lähetä <a href="mailto:elias.haapaniemi1@gmail.com">sähköpostia</a></p>
+            </div>
+        </header>
+
+        <main class="main">
+            <div class="build-interface">
+                <div class="component-panel">
+                    <div class="component-grid">
+                        <div class="component-card" data-component="cpu">
+                            <div class="component-header">
+                                <h3>Prosessori (CPU)</h3>
+                                <span class="status-icon"></span>
+                            </div>
+                            <div class="component-selector">
+                                <input type="text" placeholder="Tuotekoodi (esim. 123456)" class="component-input" id="cpu-input">
+                                <div class="component-display" id="cpu-display" style="display: none;"></div>
+                            </div>
+                        </div>
+
+                        <div class="component-card" data-component="motherboard">
+                            <div class="component-header">
+                                <h3>Emolevy</h3>
+                                <span class="status-icon"></span>
+                            </div>
+                            <div class="component-selector">
+                                <input type="text" placeholder="Tuotekoodi (esim. 123456)" class="component-input" id="motherboard-input">
+                                <div class="component-display" id="motherboard-display" style="display: none;"></div>
+                            </div>
+                        </div>
+
+                        <div class="component-card" data-component="gpu">
+                            <div class="component-header">
+                                <h3>Näytönohjain (GPU)</h3>
+                                <span class="status-icon"></span>
+                            </div>
+                            <div class="component-selector">
+                                <input type="text" placeholder="Tuotekoodi (esim. 123456)" class="component-input" id="gpu-input">
+                                <div class="component-display" id="gpu-display" style="display: none;"></div>
+                            </div>
+                        </div>
+
+                        <div class="component-card" data-component="psu">
+                            <div class="component-header">
+                                <h3>Virtalähde (PSU)</h3>
+                                <span class="status-icon"></span>
+                            </div>
+                            <div class="component-selector">
+                                <input type="text" placeholder="Tuotekoodi (esim. 123456)" class="component-input" id="psu-input">
+                                <div class="component-display" id="psu-display" style="display: none;"></div>
+                            </div>
+                        </div>
+
+                        
+                        <div class="component-card" data-component="memory">
+                            <div class="component-header">
+                                <h3>Muisti (RAM)</h3>
+                                <span class="status-icon"></span>
+                            </div>
+                            <div class="component-selector">
+                                <input type="text" placeholder="Tuotekoodi (esim. 123456)" class="component-input" id="memory-input">
+                                <div class="component-display" id="memory-display" style="display: none;"></div>
+                                <button type="button" id="add-memory" class="add-btn">Lisää muisti</button>
+                            </div>
+                        </div>
+                        <div class="component-card" data-component="storage">
+                            <div class="component-header">
+                                <h3>Tallennustila</h3>
+                                <span class="status-icon"></span>
+                            </div>
+                            <div class="component-selector">
+                                <input type="text" placeholder="Tuotekoodi (esim. 123456)" class="component-input" id="storage-input">
+                                <div class="component-display" id="storage-display" style="display: none;"></div>
+                                <button type="button" id="add-storage" class="add-btn">Lisää tallennustila</button>
+                            </div>
+                        </div>
+
+
+
+                        <div class="component-card" data-component="case">
+                            <div class="component-header">
+                                <h3>Kotelo</h3>
+                                <span class="status-icon"></span>
+                            </div>
+                            <div class="component-selector">
+                                <input type="text" placeholder="Tuotekoodi (esim. 123456)" class="component-input" id="case-input">
+                                <div class="component-display" id="case-display" style="display: none;"></div>
+                            </div>
+                        </div>
+
+                        <div class="component-card" data-component="cooler" id="cooler-card">
+                            <div class="component-header">
+                                <h3>Prosessorijäähdytin</h3>
+                                <span class="status-icon"></span>
+                                <span class="optional-tag" id="cooler-optional-tag" style="display: none;">Valinnainen</span>
+                            </div>
+                            <div class="component-selector">
+                                <input type="text" placeholder="Tuotekoodi (esim. 123456)" class="component-input" id="cooler-input">
+                                <div class="component-display" id="cooler-display" style="display: none;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="compatibility-sidebar">
+                    <div class="sidebar-header">
+                        <h3>Kokoonpano</h3>
+                        <div class="mode-toggle">
+                            <button id="simple-mode" class="mode-btn active">Yksinkertainen</button>
+                            <button id="expert-mode" class="mode-btn">Asiantuntija</button>
+                        </div>
+                    </div>
+                    
+                    <div class="build-summary" id="build-summary">
+                        <div class="summary-item empty">
+                            <span>Valitse komponentteja aloittaaksesi</span>
+                        </div>
+                    </div>
+
+                    <div class="compatibility-status" id="live-compatibility">
+                        <div class="status-item">
+                            <span class="status-label">Yhteensopivuus</span>
+                            <span class="status-value pending">Odottaa</span>
+                        </div>
+                        <div class="status-item">
+                            <span class="status-label">Virrankulutus</span>
+                            <span class="status-value" id="power-estimate">0W</span>
+                        </div>
+                    </div>
+
+                    <div class="suggestions-panel" id="suggestions-panel" style="display: none;">
+                        <h4>Suositukset</h4>
+                        <div id="smart-suggestions"></div>
+                    </div>
+
+                    <div class="issues-panel" id="issues-panel" style="display: none;">
+                        <h4>Ongelmat</h4>
+                        <div id="live-issues"></div>
+                    </div>
+
+                    <div class="actions-panel">
+                        <button id="clear-all" class="secondary-btn">Tyhjennä kaikki</button>
+                        <div class="build-actions">
+                            <button id="export-build" class="primary-btn" disabled>Tallenna</button>
+                            <button id="import-build" class="secondary-btn">Tuo</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        
+        <footer class="footer">
+            <div class="footer-content">
+                <span class="author">by <a href="https://eliasjuhani.com" target="_blank" rel="noopener noreferrer">Elias</a></span>
+            </div>
+        </footer>
+        
+        <input type="file" id="import-file" accept=".json" style="display: none;">
+    </div>
+
+    <script type="module" src="script.js"></script>
+</body>
+</html>
