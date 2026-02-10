@@ -1,0 +1,45 @@
+{
+  "importantSpecKeys": [
+    "Socket", "Suoritinkanta", "Prosessorikanta", "DDR", "Muistityyppi",
+    "Teho", "Watt", "Power", "Form Factor", "Yhteensopiva", "Malli", "Valmistaja",
+    "Speed", "Nopeus", "Capacity", "Kapasiteetti", "Interface", "Liitäntä",
+    "Clock", "Kellotaajuus", "Memory", "Muisti", "Core", "Ydin",
+    "Thread", "Säie", "Cache", "Välimuisti", "TDP", "Base", "Boost",
+    "Length", "Pituus", "Height", "Korkeus", "Tuettu muisti", "Muistipaik"
+  ],
+  "excludePatterns": [
+    "pakkaus", "paketti", "laatik", "box", "package",
+    "paino", "weight", "massa",
+    "ean", "gtin", "barcode", "tuotekoodi",
+    "väri", "colour", "color",
+    "takuu", "warranty", "guarantee",
+    "brutto", "netto", "gross",
+    "kuljetus", "shipping", "toimitus",
+    "mitat pakkauksessa", "pakkauksen", "box dimension",
+    "sisällys", "contents", "pakkauksen sis",
+    "tuotteen mitat pakkauksessa", "koko pakkauksessa",
+    "ympäristö", "environment", "turvallisuus", "safety",
+    "myyntipakkaus", "mukana", "miksi julkaisemme",
+    "kybenetiikka", "cybenetics"
+  ],
+  "categoryKeySpecs": {
+    "cpu": ["suoritinkanta", "socket", "ydin", "core", "boost", "tdp"],
+    "motherboard": ["suoritinkanta", "prosessorikanta", "socket", "tuettu muisti", "muistipaik", "form factor"],
+    "gpu": ["vram", "gddr", "boost", "kellotaajuus", "tdp", "pituus", "length"],
+    "memory": ["muistityyppi", "memory type", "nopeus", "speed", "mhz", "kapasiteetti", "capacity"],
+    "psu": ["teho", "power", "watt", "hyötysuhde", "efficiency", "modular"],
+    "storage": ["kapasiteetti", "capacity", "interface", "liitäntä", "nopeus", "read", "write"],
+    "case": ["form factor", "tyyppi", "gpu", "jäähdytin", "cooler"],
+    "cooler": ["yhteensopiv", "socket", "korkeus", "height", "tdp"]
+  },
+  "categoryDisplayNames": {
+    "cpu": "Prosessori",
+    "gpu": "Näytönohjain",
+    "memory": "Muisti",
+    "storage": "Tallennustila",
+    "motherboard": "Emolevy",
+    "psu": "Virtalähde",
+    "case": "Kotelo",
+    "cooler": "Jäähdytin"
+  }
+}
