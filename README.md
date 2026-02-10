@@ -1,3 +1,3 @@
 # pc
-PC compability checker
-Works with Gigantti product codes. 
+PC compability checker that works with Gigantti product codes.
+Working demo at https://eliasjuhani.com/pc
